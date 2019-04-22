@@ -122,16 +122,16 @@ Mindset 建立：
 
 #### 自我檢測
 
-- [ ] 你說得出程式如何執行
-- [ ] 你理解寫程式的本質只是一行行的指令
-- [ ] 你了解前端與後端的區別
-- [ ] 你能說出從發出一個 request 到接收 response 中間發生的事
-- [ ] 你了解不同載具的差異在哪（Desktop、Mobile、Web）
-- [ ] 你了解基本的 command line 指令
-- [ ] 你知道 Git 在做什麼，以及為何我們需要 Git
-- [ ] 你知道 add、commit、push、pull 等基本 Git 指令
-- [ ] 你知道怎麼使用 branch 並送出 Pull Request
-- [ ] 你熟悉 Git Workflow（其實就是交作業的流程）
+- [x] 你說得出程式如何執行
+- [x] 你理解寫程式的本質只是一行行的指令
+- [x] 你了解前端與後端的區別
+- [x] 你能說出從發出一個 request 到接收 response 中間發生的事
+- [x] 你了解不同載具的差異在哪（Desktop、Mobile、Web）
+- [x] 你了解基本的 command line 指令
+- [x] 你知道 Git 在做什麼，以及為何我們需要 Git
+- [x] 你知道 add、commit、push、pull 等基本 Git 指令
+- [x] 你知道怎麼使用 branch 並送出 Pull Request
+- [x] 你熟悉 Git Workflow（其實就是交作業的流程）
 
 ### 第二週（04/22 ~ 04/28）：程式基礎（上）
 
