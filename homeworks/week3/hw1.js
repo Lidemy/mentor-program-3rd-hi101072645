@@ -1,11 +1,11 @@
 function stars(n) {
-  const starArr = [];
+  const starsArr = [];
   let star = '*';
   for (let i = 0; i < n; i += 1) {
-    starArr.push(star);
+    starsArr.push(star);
     star += '*';
   }
-  return starArr;
+  return starsArr;
 }
 
 module.exports = stars;
