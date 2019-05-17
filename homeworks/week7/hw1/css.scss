@@ -1,0 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: '微軟正黑體'
+}
+
+.wrapper{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  .info{
+    text-align: center;
+  }
+  .btn{
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+}
+
+.hide{
+  display: none;
+}
