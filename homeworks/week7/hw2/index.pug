@@ -4,8 +4,16 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title hw1：反應力小遊戲
+    title hw2：仿 Google 表單
     link(href="css.css" rel="stylesheet")
   body
+    .wrapper
+      form.content(action="POST")
+      h1.title 程式導師實驗計畫第三期報名表單
+      p 詳情請參考：
+        a(href="https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3") https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3
+        br
+        |填完之後請務必按照文章內的說明再寄信給我，才算報名成功喔
+      small *必填
     script(src="js.js" type="text/javascript")
 
