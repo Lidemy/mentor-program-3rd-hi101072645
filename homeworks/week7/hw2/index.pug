@@ -8,12 +8,56 @@ html(lang="en")
     link(href="css.css" rel="stylesheet")
   body
     .wrapper
-      form.content(action="POST")
-      h1.title 程式導師實驗計畫第三期報名表單
-      p 詳情請參考：
-        a(href="https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3") https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3
+      form.content(method="POST")
+        .form-info
+          h1.title 程式導師實驗計畫第三期報名表單
+          p 詳情請參考：
+            a(href="https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3") https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3
+          p 填完之後請務必按照文章內的說明再寄信給我，才算報名成功喔
+          small.must-mark *必填
+        .question
+          h2.question-title 電子郵件地址
+            span.must-mark *
+          input(type="text" name="mail" placeholder="你的電子郵件")
+          span.must-alert.hide 這是必填問題
+        .question
+          h2.question-title 暱稱
+            span.must-mark *
+          p 該如何稱呼你
+          input(type="text" name="nickName" placeholder="您的回答")
+          span.must-alert.hide 這是必填問題
+        .question.radio
+          h2.question-title 報名類型
+            span.must-mark *
+          input#element(type="radio" value="element" name="apply")
+          label(for="element") 從零到一基礎班（一個月後開始收保證金 3000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付）
+          br
+          input#engineer(type="radio" value="engineer" name="apply")
+          label(for="engineer") 在職工程師加強班（一個月後開始收保證金 3000，兩個月時收學費 30000，被淘汰不退還）
+          span.must-alert.hide 這是必填問題
+        .question
+          h2.question-title 現在的職業
+            span.must-mark *
+          p 範例：學生、前端工程師、待業中、業務
+          input(type="text" name="job" placeholder="您的回答") 
+          span.must-alert.hide 這是必填問題
+        .question
+          h2.question-title 怎麼知道這個計畫的？
+            span.must-mark *
+          input(type="text" name="from" placeholder="您的回答") 
+          span.must-alert.hide 這是必填問題
+        .question
+          h2.question-title 是否有程式相關背景？
+            span.must-mark *
+          p 範例：無、高中時候學過C++、學過一點網頁前端、目前在資策會上課...
+          input(type="text" name="background" placeholder="您的回答") 
+          span.must-alert.hide 這是必填問題
+        .question
+          h2.question-title 其他
+          p 任何你想說的
+          input(type="text" name="others" placeholder="您的回答") 
+        button.btn(type="submit") 提交
         br
-        |填完之後請務必按照文章內的說明再寄信給我，才算報名成功喔
-      small *必填
+        small 請勿利用此表單送出密碼。
     script(src="js.js" type="text/javascript")
 
