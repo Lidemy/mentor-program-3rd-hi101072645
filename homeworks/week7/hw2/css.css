@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: normal; }
+
+::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.5); }
+
+:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.5); }
+
+::-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.5); }
+
+::placeholder {
+  color: rgba(0, 0, 0, 0.5); }
+
+.wrapper {
+  background-color: #F8EDE6;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.content {
+  width: 500px;
+  margin-top: 120px;
+  margin-bottom: 120px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 30px 15px;
+  background-color: #fff;
+  border-top: 10px solid #FF894B;
+  -webkit-box-shadow: 0px 2px 3px 0px #bababa;
+  box-shadow: 0px 2px 3px 0px #bababa; }
+
+.form-info {
+  padding: 15px 15px; }
+
+p {
+  font-size: 13px;
+  padding-bottom: 10px; }
+
+small {
+  color: #999;
+  font-size: 0.8em; }
+
+br + small {
+  padding-left: 15px; }
+
+.title {
+  font-size: 28px;
+  letter-spacing: 1px;
+  padding-bottom: 10px; }
+
+.must-mark {
+  color: red; }
+
+.question {
+  padding: 15px;
+  margin-bottom: 15px; }
+  .question p {
+    padding-bottom: 0; }
+
+.question-title {
+  font-size: 18px;
+  padding-bottom: 15px; }
+  .question-title span.must-mark {
+    padding-left: 5px; }
+
+.question-title + p {
+  margin-top: -15px; }
+
+input[type='text'] {
+  background-color: transparent;
+  caret-color: transparent;
+  outline: none;
+  width: 50%;
+  border-width: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  padding-bottom: 3px;
+  margin-top: 10px;
+  margin-bottom: 10px; }
+  input[type='text']:focus {
+    border-width: 0px;
+    border-bottom: 2px solid #b43a09; }
+
+label {
+  font-size: 13px;
+  margin-top: 15px; }
+
+.btn {
+  margin-left: 15px;
+  width: 100px;
+  padding: 10px;
+  background: #1A73E8;
+  color: #fff; }
+
+.must-alert {
+  display: block;
+  color: red;
+  font-size: .8em; }
+
+.hide {
+  display: none; }
+
+.not-filled {
+  background-color: #FCE8E6; }
+  .not-filled input[type="text"] {
+    border-bottom: 1px solid red; }
+  .not-filled .hide {
+    display: block; }
+
+.sent {
+  text-align: center;
+  font-size: 14px;
+  font-weight: normal; }
