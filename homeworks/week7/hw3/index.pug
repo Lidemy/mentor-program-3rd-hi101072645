@@ -4,8 +4,31 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title hw1：反應力小遊戲
+    title hw3：計算機
     link(href="css.css" rel="stylesheet")
   body
+    .calculator
+      .screen
+      .row
+        #ac.btn AC
+        .btn.cals(data-cal="4") ÷
+      .row
+        .btn.num 7
+        .btn.num 8
+        .btn.num 9
+        .btn.cals(data-cal="3") ×
+      .row
+        .btn.num 4
+        .btn.num 5
+        .btn.num 6
+        .btn.cals(data-cal="1") +
+      .row
+        .btn.num 1
+        .btn.num 2
+        .btn.num 3
+        .btn.cals(data-cal="2") -
+      .row
+        .btn.num 0
+        .btn.dot .
+        #equal.btn =
     script(src="js.js" type="text/javascript")
-
