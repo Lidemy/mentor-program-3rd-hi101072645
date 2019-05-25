@@ -10,23 +10,23 @@ const btn = document.querySelector('.btn');
 const mailRegxp = /\S+@\S+.\S+/;
 
 
-const fillOrNot = function fillOrNot(question) {
+function fillOrNot(question) {
   if (question.value !== '') {
     question.parentElement.classList.remove('not-filled');
     return true;
   }
   question.parentElement.classList.add('not-filled');
   return false;
-};
+}
 
-const mustFill = function mustFill(question) {
+function mustFill(question) {
   question.addEventListener('focusout', () => {
     fillOrNot(question);
   });
   question.addEventListener('keyup', () => {
     fillOrNot(question);
   });
-};
+}
 
 function radioFill(radio) {
   let checkedOrNot = false;
@@ -77,12 +77,13 @@ btn.addEventListener('click', (e) => {
   const apply = radioFill(applyType);
   if (!mailRight && !nameRight && !jobRight && !bgRight && !howRight && !apply) {
     e.preventDefault();
+  } else {
+    content.innerHTML = `
+    <div class="sent">
+      我們已經收到您的回答（並沒有），<br />
+      感謝您撥冗填答！<br />
+      有任何更進一步的消息，<br />
+      將會盡快通知您。（應該不會）
+    </div>`;
   }
-  content.innerHTML = `
-  <div class="sent">
-    我們已經收到您的回答（並沒有），<br />
-    感謝您撥冗填答！<br />
-    有任何更進一步的消息，<br />
-    將會盡快通知您。（應該不會）
-  </div>`;
 }, false);

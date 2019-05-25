@@ -1,12 +1,13 @@
-const countDown = Math.random() * 3 * 1000;
+const countDown = (Math.random() * 2 * 1000) + 1000;
 const btn = document.querySelector('.btn');
 const wrapper = document.querySelector('.wrapper');
 const score = document.querySelector('.score');
-let isChanged = false;
-let timer = 0;
-let isPlaying = true;
-let setTime = '';
-let setColor = '';
+let playing = true;
+let startTime;
+let clickTime;
+let costTime;
+[startTime, clickTime, costTime] = [0, 0, 0];
+let setColor;
 const ranks = [];
 
 function randomColor() {
@@ -18,20 +19,10 @@ function randomColor() {
   return colorCode;
 }
 
-function clickTime() {
-  setTime = setTimeout(() => {
-    timer += 0.03;
-    setTimeout(clickTime(), 30);
-  }, 30);
-  return timer.toFixed(2);
-}
-
 function changeColor() {
   setColor = setTimeout(() => {
     wrapper.style.backgroundColor = randomColor();
-    isChanged = true;
-    timer = 0;
-    clickTime();
+    startTime = new Date();
   }, countDown);
 }
 
@@ -58,51 +49,62 @@ function rank(time) {
 }
 
 
-function clickWindow() {
-  if (!isChanged && isPlaying) {
-    alert('還沒變色唷');
-    clearTimeout(setColor);
+function clickNow() {
+  if (startTime !== 0) {
+    clickTime = new Date();
+    costTime = (clickTime - startTime) / 1000;
+    rank(costTime);
     btn.classList.remove('hide');
-    isPlaying = false;
-    clearTimeout(setTime);
-  } else if (isChanged && isPlaying) {
-    btn.classList.remove('hide');
-    alert(`反應時間為： ${clickTime()} 秒`);
-    rank(clickTime());
-    clearTimeout(setTime);
-    isChanged = false;
-    isPlaying = false;
+    startTime = 0;
+    playing = false;
+    alert(`反應時間為： ${costTime} 秒`);
   }
+}
+
+function notNow(e) {
+  e.preventDefault();
+  alert('還沒變色喔！');
+  startTime = 0;
+  clearTimeout(setColor);
+  btn.classList.remove('hide');
+  playing = false;
 }
 
 function resetGame() {
   btn.classList.add('hide');
-  isChanged = false;
-  isPlaying = true;
+  playing = true;
   changeColor();
 }
 
-
 changeColor();
 
-
-wrapper.addEventListener('click', () => {
-  clickWindow();
-}, false);
+wrapper.addEventListener('click', (e) => {
+  if (startTime === 0 && playing) {
+    notNow(e);
+  } else {
+    clickNow();
+  }
+});
 
 window.addEventListener('keydown', (e) => {
   if (e.keyCode === 32) {
-    clickWindow();
+    if (startTime === 0 && playing) {
+      notNow(e);
+    } else {
+      clickNow();
+    }
   }
 }, false);
 
 
-btn.addEventListener('click', () => {
+btn.addEventListener('click', (e) => {
+  e.stopPropagation();
   resetGame();
 }, false);
 
 window.addEventListener('keydown', (e) => {
   if (e.keyCode === 82) {
+    e.stopPropagation();
     resetGame();
   }
 }, false);
