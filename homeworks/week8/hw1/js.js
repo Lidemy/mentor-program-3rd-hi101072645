@@ -48,16 +48,6 @@ btn.addEventListener('click', () => {
     prize.innerHTML = '';
     btn.textContent = '立即抽獎';
   } else {
-    request.addEventListener('load', () => {
-      if (request.status >= 200 && request.status < 400) {
-        result = JSON.parse(request.responseText).prize;
-      } else {
-        alert('系統不穩定，請再試一次');
-      }
-    });
-    request.onerror = function () {
-      alert('系統不穩定，請再試一次');
-    };
     request.open('GET', 'https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery', true);
     request.send();
     showPrize(result);
