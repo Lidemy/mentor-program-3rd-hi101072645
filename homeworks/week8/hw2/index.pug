@@ -7,4 +7,10 @@ html(lang="en")
     title Document
     link(href="css.css" rel="stylesheet")
   body
+    .wrapper
+      h1 王媽媽留言板
+      form.add-post
+        textarea#new(name="new" placeholder="請在此輸入留言")
+        button#btn(type='submit') 送出留言
+      .posts
     script(src="js.js" type="text/javascript")
