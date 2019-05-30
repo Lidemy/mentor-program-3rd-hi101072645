@@ -3,3 +3,4 @@ conn.php
 .DS_STORE
 yarn.lock
 prepros-6.config
+conn.php
