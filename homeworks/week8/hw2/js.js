@@ -24,7 +24,7 @@ request.onerror = function () {
   console.log('errer');
 };
 
-request.open('GET', 'https://lidemy-book-store.herokuapp.com/posts?_order=asc', true);
+request.open('GET', 'https://lidemy-book-store.herokuapp.com/posts?_limit=20&_sort=id&_order=desc', true);
 
 request.send();
 
