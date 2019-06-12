@@ -1,0 +1,440 @@
+$max-width:920px;
+$phone-width: 468px;
+
+@mixin pc() {
+  @media all and (min-width: $max-width) {
+		@content;
+	}
+}
+
+@mixin mid() {
+  @media all and (min-width: $phone-width) and (max-width: $max-width) {
+		@content;
+	}
+}
+
+@mixin ph() {
+  @media all and (max-width: $phone-width) {
+		@content;
+	}
+}
+
+$main: #AA6B39;
+$m-dark: #8A4D1C;
+$m-darker: #6B3408;
+$m-light:#CA8E5E;
+$m-lighter: #E9B588;
+
+$sub: #74BD70;
+$s-dark: #328A2E;
+$s-light: #0A5606;
+
+$d-color: #aa3939;
+$d-dark: #8a1c1c;
+
+$borr: 5px;
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Mukta', 'Noto Sans TC', sans-serif;
+  color: $m-darker;
+  letter-spacing: 2px;
+}
+
+
+body, html{
+  background-color: $m-darker;
+  position: relative;
+  &:before{
+    content: '僅供練習，切勿留下常用私人資訊';
+    font-size: .8em;
+    text-align: center;
+    line-height: 40px;
+    color: yellow;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 40px;
+    background-color: rgba(0,0,0,.2);
+  }
+}
+
+.wrapper{
+  width: 100%;
+  max-width: $max-width;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  background-color: $main;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+h1{
+  padding-top: 200px;
+  text-align: center;
+  @include ph {
+    font-size: 1.5em;
+    padding-top: 60px;
+  }
+}
+.banner {
+  color: #fff;
+  position: relative;
+  text-align: center;
+  .wrapper{
+    @include ph {
+      padding-top: 100px;
+    }
+  }
+  span {
+    color: $m-lighter;
+    font-weight: normal;
+    font-style: italic;
+  }
+  &:before{
+    content:'';
+
+  }
+}
+
+.eye{
+  width: 65px;
+  height: 65px;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 1px 1px 2px 2px $m-dark;
+  border-radius: 50%;
+  margin: auto;
+  top: 60px;
+  overflow: hidden;
+}
+.eye:nth-child(1){
+  left: 25%;
+  @include ph {
+    left: 10%;
+  }
+}
+.eye:nth-child(2){
+  right: 25%;
+  @include ph {
+    right: 10%;
+  }
+}
+
+.eyee{
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  margin: auto;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  background: $m-dark;
+  border-radius: 50%;
+}
+
+.nose{
+  position: absolute;
+  left: 48%;
+  margin: auto;
+  top: 100px;
+  width: 0px;
+  height: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent $m-dark;
+  border-width: 30px 0 0 80px;
+  @include ph {
+    left: 45%;
+    top: 80px;
+    border-width: 20px 0 0 40px;
+  }
+}
+
+form.add{
+  padding: 20px;
+  padding-bottom: 100px;
+  label{
+    display: block;
+    padding: 15px;
+    input{
+      padding: 5px 10px;
+      color: $m-darker;
+      border: 1px solid $m-light;
+      border-color: $m-light;
+      border-radius: $borr;
+      background-color: $m-light;
+      font-size: 1.1em;
+      &:focus{
+        outline: 0px;
+        border: 1px solid $m-dark;
+      }
+      &::placeholder{
+        color: $m-dark;
+      }
+    }
+  }
+}
+textarea{
+  width: 100%;
+  height: 130px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  display: block;
+  color: $m-darker;
+  border-color: $m-light;
+  border-radius: $borr;
+  background-color: $m-light;
+  font-size: 1.1em;
+  
+  &:focus{
+    outline: 0px;
+    border: 1px solid $m-dark;
+  }
+  &::placeholder{
+    color: $m-dark;
+  }
+}
+
+.messages{
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 150px;
+  border-top: 2px dashed $m-dark;
+}
+
+.mesg{
+  .mesg-poster{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    .poster-name{
+      color: $m-lighter;
+      &:before{
+        content:'from: ';
+        margin-left: 15px;
+      }
+    }
+  }
+  .mesg-content{
+    background-color: $m-darker;
+    border-radius: $borr;
+    color: $m-light;
+    line-height: 1.6em;
+    font-size: 1.2em;
+    padding: 15px 20px;
+    text-align: justify;
+    position: relative;
+    margin-bottom: 5px;
+    &:before{
+      content:'';
+      position: absolute;
+      width: 15px;
+      height: 30px;
+      top: -55px;
+      right: 3%;
+      border-style: solid;
+      border-color: transparent transparent $m-darker transparent ;
+      border-width: 0 0 30px 15px;
+      transform: rotate(5deg);
+    }
+  }
+  .created-time {
+    text-align: right;
+    @include ph {
+      font-size: 1.1em;
+      margin-top: -5px;
+      margin-bottom: 5px;
+    }
+  }
+
+}
+
+
+.sub-mesg{
+  margin-top: -30px;
+  width: 95%;
+  margin-left: 5%;
+  .mesg-poster {
+    padding-top: 0;
+    padding-bottom: 5px;
+  }
+  .sub-mesg-content{
+    min-height: 100px;
+    background-color: $m-dark;
+    border-radius: $borr;
+    color: $m-light;
+    line-height: 1.6em;
+    font-size: 1.2em;
+    padding: 15px 20px;
+    text-align: justify;
+    position: relative;
+    margin-bottom: 5px;
+    &:before{
+      content:'';
+      position: absolute;
+      width: 10px;
+      height: 15px;
+      bottom: 10%;
+      left: -4%;
+      border-style: solid;
+      border-color: transparent $m-dark transparent transparent;
+      border-width: 0px 25px 10px 0;
+      transform: rotate(10deg);
+    }
+  }
+  .created-time{
+    padding-bottom: 10px;
+    @include ph {
+      font-size: 1.1em;
+      margin-top: -5px;
+      margin-bottom: 5px;
+    }
+  }
+  form.add{
+    padding-top: 40px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    textarea{
+      height: 80px;
+    }
+    .btn-add{
+      margin-top: 5px;
+      margin-right: 0;
+      padding: 5px 10px;
+      font-size: .9em;
+    }
+  }
+}
+
+.side-page{
+  min-height: 100vh;
+}
+#sign-in,#log-in{
+  text-align: center;
+
+}
+
+.empty {
+  position: relative;
+  &:before{
+    content: '不可以空白唷*';
+    position: absolute;
+    top: 0;
+    color: #ddd;
+    font-size: .8em;
+  }
+  input{
+    border: 1px solid rgb(255, 255, 255);
+    color: #fff;
+  }
+}
+
+.btn{
+  padding: 10px 20px;
+  font-size: 1.1em;
+  display: block;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  background-color: $sub;
+  box-shadow: 1px 2px 0px 2px $s-dark;
+  border-radius: $borr;
+  letter-spacing: 4px;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover{
+    background-color: $s-dark;
+  }
+  &:focus{
+    outline: 0px;
+  }
+}
+
+.btn-other {
+  color: $m-lighter;
+  max-width: 200px;
+  text-align: center;
+  font-size: 1em;
+  padding: 5px 15px;
+  background-color: $m-dark;
+  box-shadow: 1px 2px 0px 2px $m-darker;
+  &:hover{
+    background-color: $m-darker;
+  }
+}
+.member{
+  text-align: center;
+  padding: 30px 0;
+  p{
+    color: $m-lighter;
+    @include ph {
+      padding: 10px;
+      .btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 5px 10px;
+        font-size: .9em;
+      }
+    }
+  }
+  .btn{
+    display: inline;
+    font-size: 1em;
+    padding: 5px 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+}
+form.update-mesg{
+  display: inline;
+  button{
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: $borr;
+    letter-spacing: 2px;
+    border: 0;
+    margin-left: 5px;
+    cursor: pointer;
+    &:focus{
+      outline: 0px;
+    }
+  }
+  .btn-edit{
+    background-color: $m-lighter;
+    color: $main;
+    box-shadow: 1px 2px 0px 1px $m-light;
+    &:hover{
+      background-color: $m-light;
+    }
+  }
+  .btn-del{
+    background-color: $d-color;
+    margin-right: 5px;
+    color: #fff;
+    box-shadow: 1px 2px 0px 2px $d-dark;
+    &:hover{
+      background-color: $d-dark;
+    }
+  }
+}
+
+.ori-poster{
+  .poster-name{
+    &:after{
+      content:'(原PO)';
+    }
+  }
+  .sub-mesg-content{
+    background-color: $m-darker;
+    &:before{
+      border-color: transparent $m-darker transparent transparent;
+    }
+  }
+}
