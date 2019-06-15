@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title 編輯留言
+    link(href="https://fonts.googleapis.com/css?family=Mukta:300|Noto+Sans+TC:300&display=swap" rel="stylesheet")
+    link(href="lib/css.css" rel="stylesheet")
+
+  body
+    .wrapper.side-page
+      h1 編輯文章
+      .mesg
+        .mesg-poster
+          img.poster-img(src="", alt="")
+          .poster-name 我是吉米
+        .mesg-content Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio culpa at nulla rerum? Debitis ducimus numquam soluta corporis. Nulla praesentium provident vero, necessitatibus laboriosam iure fuga! Accusantium reprehenderit corporis itaque!
+      
+      form.add(method="post" action="lib/handle_edit.php")
+        label(for="nick-name") 更新留言內容：
+        textarea#new-msg(name="new-msg")
+        input(type='hidden' value='' name='id')
+        button.btn.btn-add(type="submit") 送出留言
+        a(class='btn btn-other' href='index.php') 取消修改

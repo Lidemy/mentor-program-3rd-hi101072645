@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>\(偷偷說)/</title>
+    <link href="https://fonts.googleapis.com/css?family=Mukta:300|Noto+Sans+TC:300&amp;display=swap" rel="stylesheet"/>
+    <link href="lib/css.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="banner">
+      <div class="wrapper">
+        <div class="eye">
+          <div class="eyee"></div>
+        </div>
+        <div class="eye">
+          <div class="eyee"></div>
+        </div>
+        <div class="nose"></div>
+        <h1>這是一個小樹洞</h1><span>你知道國王有雙驢耳朵嗎？</span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="wrapper">
+        <form class="add" method="post" action="lib/handle_add.php">
+          <label for="nick-name">請問你是?
+            <input type="text" name="nick-name" placeholder="請輸入暱稱"/>
+          </label>
+          <textarea id="new-msg" name="new-msg" placeholder="在這邊留下想和小樹洞說的事情吧：Ｄ"></textarea>
+          <button class="btn btn-add" type="submit">送出留言</button><a class="btn btn-other" href="lib/log-out.php">留言完成我要登出</a>
+        </form>
+        <div class="member">
+          <p>為了保護你的小秘密，想和小樹洞說話的話請<a class="btn log-in" href="log-in.html">登 入</a>或者<a class="btn sign-in" href="sign-in.html">註 冊</a></p>
+        </div>
+        <div class="messages">
+          <div class="mesg">
+            <div class="mesg-poster"><img class="poster-img" src="" alt=""/>
+              <div class="poster-name">我是吉米</div>
+            </div>
+            <div class="mesg-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio culpa at nulla rerum? Debitis ducimus numquam soluta corporis. Nulla praesentium provident vero, necessitatibus laboriosam iure fuga! Accusantium reprehenderit corporis itaque!</div>
+            <div class="created-time">2019-06-03 07:35:02
+              <form class="update-mesg" method="POST" action="edit.php">
+                <input type="hidden" value=""/>
+                <button class="btn-edit" type="submit">編輯</button>
+              </form>
+              <form class="update-mesg" method="POST" action="delete.php">
+                <input type="hidden" value=""/>
+                <button class="btn-del" type="submit">刪除</button>
+              </form>
+            </div>
+            <div class="sub-mesg">
+              <div class="mesg-poster"><img class="poster-img" src="" alt=""/>
+                <div class="poster-name">我是吉米</div>
+              </div>
+              <div class="sub-mesg-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio culpa at nulla rerum? Debitis ducimus numquam soluta corporis. Nulla praesentium provident vero, necessitatibus laboriosam iure fuga! Accusantium reprehenderit corporis itaque!</div>
+              <div class="created-time">2019-06-03 07:35:02
+                <form class="update-mesg" method="POST" action="edit.php">
+                  <input type="hidden" value="$id" name="id"/>
+                  <button class="btn-edit" type="submit">編輯</button>
+                </form>
+                <form class="update-mesg" method="POST" action="delete.php">
+                  <input type="hidden" value="$id" name="id"/>
+                  <button class="btn-del" type="submit">刪除</button>
+                </form>
+              </div>
+            </div>
+            <div class="sub-mesg ori-poster">
+              <div class="mesg-poster"><img class="poster-img" src="" alt=""/>
+                <div class="poster-name">我是吉米</div>
+              </div>
+              <div class="sub-mesg-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio culpa at nulla rerum? Debitis ducimus numquam soluta corporis. Nulla praesentium provident vero, necessitatibus laboriosam iure fuga! Accusantium reprehenderit corporis itaque!</div>
+              <div class="created-time">2019-06-03 07:35:02</div>
+            </div>
+            <div class="sub-mesg">
+              <form class="add" method="post" action="lib/handle_add.php">
+                <textarea id="new-msg" name="new-msg" placeholder="回覆留言"></textarea>
+                <button class="btn btn-add" type="submit">送出留言</button>
+              </form>
+            </div>
+          </div>
+          <div class="mesg">
+            <div class="mesg-poster"><img class="poster-img" src="" alt=""/>
+              <div class="poster-name">我是吉米</div>
+            </div>
+            <div class="mesg-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio culpa at nulla rerum? Debitis ducimus numquam soluta corporis. Nulla praesentium provident vero, necessitatibus laboriosam iure fuga! Accusantium reprehenderit corporis itaque!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="lib/js.js" type="text/javascript"></script>
+  </body>
+</html>

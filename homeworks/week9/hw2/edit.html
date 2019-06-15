@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>編輯留言</title>
+    <link href="https://fonts.googleapis.com/css?family=Mukta:300|Noto+Sans+TC:300&amp;display=swap" rel="stylesheet"/>
+    <link href="lib/css.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="wrapper side-page">
+      <h1>編輯文章</h1>
+      <div class="mesg">
+        <div class="mesg-poster"><img class="poster-img" src="" alt=""/>
+          <div class="poster-name">我是吉米</div>
+        </div>
+        <div class="mesg-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio culpa at nulla rerum? Debitis ducimus numquam soluta corporis. Nulla praesentium provident vero, necessitatibus laboriosam iure fuga! Accusantium reprehenderit corporis itaque!</div>
+      </div>
+      <form class="add" method="post" action="lib/handle_edit.php">
+        <label for="nick-name">更新留言內容：</label>
+        <textarea id="new-msg" name="new-msg"></textarea>
+        <input type="hidden" value="" name="id"/>
+        <button class="btn btn-add" type="submit">送出留言</button><a class="btn btn-other" href="index.php">取消修改</a>
+      </form>
+    </div>
+  </body>
+</html>

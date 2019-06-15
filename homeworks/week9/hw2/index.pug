@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title \(偷偷說)/
+    link(href="https://fonts.googleapis.com/css?family=Mukta:300|Noto+Sans+TC:300&display=swap" rel="stylesheet")
+    link(href="lib/css.css" rel="stylesheet")
+
+  body
+    .banner
+      .wrapper
+        .eye
+          .eyee
+        .eye
+          .eyee
+        .nose
+        h1 這是一個小樹洞
+        span 你知道國王有雙驢耳朵嗎？
+    .content
+      .wrapper
+        form.add(method="post" action="lib/handle_add.php")
+          label(for="nick-name") 請問你是?
+            input(type="text" name="nick-name" placeholder="請輸入暱稱")  
+          textarea#new-msg(name="new-msg" placeholder="在這邊留下想和小樹洞說的事情吧：Ｄ")
+          button.btn.btn-add(type="submit") 送出留言
+          a(class='btn btn-other' href='lib/log-out.php') 留言完成我要登出
+        .member
+          p 為了保護你的小秘密，想和小樹洞說話的話請
+            a.btn.log-in(href="log-in.html") 登 入
+            | 或者
+            a.btn.sign-in(href="sign-in.html") 註 冊
+        .messages
+          .mesg
+            .mesg-poster
+              img.poster-img(src="", alt="")
+              .poster-name 我是吉米
+            .mesg-content Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio culpa at nulla rerum? Debitis ducimus numquam soluta corporis. Nulla praesentium provident vero, necessitatibus laboriosam iure fuga! Accusantium reprehenderit corporis itaque!
+            .created-time 2019-06-03 07:35:02
+              form.update-mesg(method='POST' action='edit.php')
+                input(type='hidden' value='')
+                button.btn-edit(type='submit') 編輯
+              form.update-mesg(method='POST' action='delete.php')
+                input(type='hidden' value='')
+                button.btn-del(type='submit') 刪除
+            .sub-mesg
+              .mesg-poster
+                img.poster-img(src="", alt="")
+                .poster-name 我是吉米
+              .sub-mesg-content Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio culpa at nulla rerum? Debitis ducimus numquam soluta corporis. Nulla praesentium provident vero, necessitatibus laboriosam iure fuga! Accusantium reprehenderit corporis itaque!
+              .created-time 2019-06-03 07:35:02
+                form.update-mesg(method='POST' action='edit.php')
+                  input(type='hidden' value='$id' name='id')
+                  button.btn-edit(type='submit') 編輯
+                form.update-mesg(method='POST' action='delete.php')
+                  input(type='hidden' value='$id' name='id')
+                  button.btn-del(type='submit') 刪除
+            .sub-mesg.ori-poster
+              .mesg-poster
+                img.poster-img(src="", alt="")
+                .poster-name 我是吉米
+              .sub-mesg-content Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio culpa at nulla rerum? Debitis ducimus numquam soluta corporis. Nulla praesentium provident vero, necessitatibus laboriosam iure fuga! Accusantium reprehenderit corporis itaque!
+              .created-time 2019-06-03 07:35:02
+            .sub-mesg
+              form.add(method="post" action="lib/handle_add.php")
+                textarea#new-msg(name="new-msg" placeholder="回覆留言")
+                button.btn.btn-add(type="submit") 送出留言
+
+          .mesg
+            .mesg-poster
+              img.poster-img(src="", alt="")
+              .poster-name 我是吉米
+            .mesg-content Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio culpa at nulla rerum? Debitis ducimus numquam soluta corporis. Nulla praesentium provident vero, necessitatibus laboriosam iure fuga! Accusantium reprehenderit corporis itaque!
+              
+    script(src="lib/js.js" type="text/javascript")

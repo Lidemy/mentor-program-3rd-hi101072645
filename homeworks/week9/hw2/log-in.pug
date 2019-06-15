@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title 登入
+    link(href="https://fonts.googleapis.com/css?family=Mukta:300|Noto+Sans+TC:300&display=swap" rel="stylesheet")
+    link(href="lib/css.css" rel="stylesheet")
+
+  body
+    .wrapper.side-page
+      h1 你好呀老友！帶來新的小秘密了嗎？
+      form.add#log-in(method="post" action="lib/handle_log-in.php")
+        label(for="account") 帳　　號：
+          input(type="text" name="account")
+        label(for="password") 密　　碼：
+          input(type="password" name="password" autocomplete="password")
+        button.btn(type="submit") 登　　入
+        button.btn.btn-other(href="sign-in.html") 沒有帳號我要註冊
+        
+    script(src="lib/formCheck.js" type="text/javascript")
