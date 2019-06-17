@@ -45,13 +45,14 @@
     };
   }
 
-  function renderDelAndEditButton($id) {
+  function renderDelAndEditButton($id,$uid) {
     echo "
     <form class='update-mesg' method='POST' action='edit.php'>
       <input type='hidden' value='$id' name='id'/>
       <button class='btn-edit' type='submit'>編輯</button>
     </form>
     <form class='update-mesg' method='POST' action='delete.php'>
+      <input type='hidden' value='$uid' name='uid'/>
       <input type='hidden' value='$id' name='id'/>
       <button class='btn-del' type='submit'>刪除</button>
     </form>";
