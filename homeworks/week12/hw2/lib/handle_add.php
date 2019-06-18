@@ -8,8 +8,7 @@ $user = getUserByToken($conn, $_COOKIE['token']);
 if (isset($_POST['message']) && 
     !empty($_POST['message']) 
 ){
-  print_r($_POST);
-  $user_id = $_POST['user-id'];
+  $user_id = $user[0];
   $message = escape($conn, $_POST['message']);
   $reply_id = $_POST['reply-id'];
   $is_deleted = 0;
