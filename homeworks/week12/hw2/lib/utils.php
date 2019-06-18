@@ -19,7 +19,7 @@
 
   function setToken($conn, $username) {
     $token = $_COOKIE['PHPSESSID'];
-    $sql = "DELETE FROM hi101072645_users_certificate where username='$username'";
+    $sql = "DELETE FROM hi101072645_users_certificate where account='$username'";
     $conn->query($sql);
     $sql = "INSERT INTO hi101072645_users_certificate (account, token) VALUES('$username', '$token')";
     $conn->query($sql);

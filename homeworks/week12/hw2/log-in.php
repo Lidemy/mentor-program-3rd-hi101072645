@@ -1,4 +1,5 @@
 <?php 
+include_once('lib/check_login.php');
 include_once('conn.php');
 include_once('lib/utils.php');
 
