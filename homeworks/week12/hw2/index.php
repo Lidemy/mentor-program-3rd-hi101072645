@@ -36,7 +36,6 @@ if (isset($user) && !empty($user)) {
   <form class='add' method='post' action='lib/handle_add.php'>
     <p>哈囉！ $user[1] 你好呀 :)</p>
     <textarea id='message' name='message' placeholder='在這邊留下想和小樹洞說的事情吧：Ｄ'></textarea>
-    <input type='hidden' value='$user[0]' name='user-id'>
     <input type='hidden' value='0' name='reply-id'>
     <button class='btn btn-add' type='submit'>送出留言</button>
     <a class='btn btn-other' href='lib/log-out.php'>留言完成我要登出</a>
@@ -121,19 +120,19 @@ function br2nl($text){
 
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_array(MYSQLI_NUM)) {
-    // print_r($row);
     $nickname = htmlspecialchars($row[4]);
-    $content = str_replace('\r\n', "<br />",$row[2]);
+    $content = str_replace('\r\n', "<br />",htmlspecialchars($row[2]));
     $time = htmlspecialchars($row[3]);
     $id = $row[0];
+    $uid = $row[1];
     echo "<div class='mesg'>
     <div class='mesg-poster'>
       <img class='poster-img' src='' alt=''/>
       <div class='poster-name'>" . $nickname .  "</div></div>
     <div class='mesg-content'>" . $content . "</div>
-    <div class='created-time'>" . $time;
+    <div class='created-time'>" .  date('Y-m-d H:i:s',strtotime($time)+15*3600);
     if (isset($user) && $user[1] == $nickname ) {
-      renderDelAndEditButton($row[0]);
+      renderDelAndEditButton($id, $uid);
     }
     echo "</div>";
     $sql_sub = "
@@ -155,6 +154,8 @@ if ($result->num_rows > 0) {
       $nickname_sub = htmlspecialchars($row_sub[4]);
       $content_sub = str_replace('\r\n', "<br />",$row_sub[2]);
       $time = htmlspecialchars($row_sub[3]);
+      
+      $uid_sub = $row_sub[1];
       $id_sub = $row_sub[0];
       if ($nickname == $nickname_sub) {
         echo "<div class='sub-mesg ori-poster'>";
@@ -166,9 +167,9 @@ if ($result->num_rows > 0) {
         <img class='poster-img' src='' alt=''/>
         <div class='poster-name'>" . $nickname_sub .  "</div></div>
         <div class='sub-mesg-content'>" . $content_sub . "</div>
-        <div class='created-time'>" . $time;
+        <div class='created-time'>" . date('Y-m-d H:i:s',strtotime($time)+15*3600);
       if (isset($user) && $user[1] == $nickname_sub ) {
-        renderDelAndEditButton($row_sub[0]);
+        renderDelAndEditButton($id_sub,$uid_sub);
       }
       echo "</div></div>";
     }
@@ -177,7 +178,6 @@ if ($result->num_rows > 0) {
       <div class='sub-mesg'>
         <form class='add' method='post' action='lib/handle_add.php'>
           <textarea id='message' name='message' placeholder='回覆留言'></textarea>
-          <input type='hidden' value='$user[0]' name='user-id'>
           <input type='hidden' value='$id' name='reply-id'>
           <button class='btn btn-add' type='submit'>送出留言</button>
         </form>
@@ -221,6 +221,7 @@ echo <<<_END
   </body>
 </html>
 _END;
+session_destroy();
 $result->close();
 $conn->close();
 

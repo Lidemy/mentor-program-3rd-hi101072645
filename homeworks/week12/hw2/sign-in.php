@@ -19,18 +19,22 @@ echo <<<_END
       </div>
       <form class='add' id="sign-in" method="post" action="lib/handle_sign-in.php">
         <label for="account">帳　　號：
-          <input type="text" name="account"/>
+          <input type="text" name="account" placeholder="限填英數字" onkeyup="value=value.replace(/[\W]/g,'') "
+          onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
         </label>
         <label for="nickname">暱　　稱：
           <input type="text" name="nickname"/>
         </label>
         <label for="password">密　　碼：
-          <input id="password" type="password" name="password" autocomplete="set-password"/>
+          <input id="password" type="password" name="password" autocomplete="set-password" placeholder="限填英數字" onkeyup="value=value.replace(/[\W]/g,'') "
+          onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
         </label>
         <label for="password2">密碼確認：
-          <input id="passche" type="password" name="password2" autocomplete="check-password"/>
+          <input id="passche" type="password" name="password2" autocomplete="check-password" placeholder="限填英數字" onkeyup="value=value.replace(/[\W]/g,'') "
+          onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
         </label>
-        <button class="btn-add" type="submit">確認送出</button>
+        <button class="btn" type="submit">確認送出</button>
+        <a class="btn btn-other" href="log-in.php">沒有帳號我要登入</button>
       </form>
     </div>
     <script src="lib/formCheck.js" type="text/javascript"></script>
