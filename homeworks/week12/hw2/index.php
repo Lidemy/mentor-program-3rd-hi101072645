@@ -120,9 +120,8 @@ function br2nl($text){
 
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_array(MYSQLI_NUM)) {
-    // print_r($row);
     $nickname = htmlspecialchars($row[4]);
-    $content = str_replace('\r\n', "<br />",$row[2]);
+    $content = str_replace('\r\n', "<br />",htmlspecialchars($row[2]));
     $time = htmlspecialchars($row[3]);
     $id = $row[0];
     $uid = $row[1];
@@ -131,7 +130,7 @@ if ($result->num_rows > 0) {
       <img class='poster-img' src='' alt=''/>
       <div class='poster-name'>" . $nickname .  "</div></div>
     <div class='mesg-content'>" . $content . "</div>
-    <div class='created-time'>" . $time;
+    <div class='created-time'>" .  date('Y-m-d H:i:s',strtotime($time)+15*3600);
     if (isset($user) && $user[1] == $nickname ) {
       renderDelAndEditButton($id, $uid);
     }
@@ -153,7 +152,7 @@ if ($result->num_rows > 0) {
     $result_sub = $stmt_sub->get_result();
     while ($row_sub = $result_sub->fetch_array(MYSQLI_NUM)) {
       $nickname_sub = htmlspecialchars($row_sub[4]);
-      $content_sub = str_replace('\r\n', "<br />",$row_sub[2]);
+      $content_sub = str_replace('\r\n', "<br />",htmlspecialchars($row_sub[2]));
       $time = htmlspecialchars($row_sub[3]);
       $uid_sub = $row_sub[1];
       $id_sub = $row_sub[0];
@@ -167,7 +166,7 @@ if ($result->num_rows > 0) {
         <img class='poster-img' src='' alt=''/>
         <div class='poster-name'>" . $nickname_sub .  "</div></div>
         <div class='sub-mesg-content'>" . $content_sub . "</div>
-        <div class='created-time'>" . $time;
+        <div class='created-time'>" . date('Y-m-d H:i:s',strtotime($time)+15*3600);
       if (isset($user) && $user[1] == $nickname_sub ) {
         renderDelAndEditButton($id_sub,$uid_sub);
       }
@@ -221,6 +220,7 @@ echo <<<_END
   </body>
 </html>
 _END;
+session_destroy();
 $result->close();
 $conn->close();
 
